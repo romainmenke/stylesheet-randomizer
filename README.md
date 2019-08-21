@@ -14,3 +14,32 @@
 - run everything in docker
 - fully reproducible output (must be possible to go back in time and generate a bigger data set)
 - drop ready-made datasets somewhere in a bucket
+
+### How to
+
+**Server**
+
+```
+$ go get -u github.com/romainmenke/stylesheet-randomizer/...
+$ cd $GOPATH/src/github.com/romainmenke/stylesheet-randomizer
+$ go install ./cmd/sr-server && sr-server
+```
+
+Visit :
+
+`http://localhost:4567/?seed=325`
+
+Change the `seed` argument to get different results
+
+**CLI**
+
+- Make sure the server is running
+- Create a `data` directory in this repo (ignored by git)
+
+```
+$ cd $GOPATH/src/github.com/romainmenke/stylesheet-randomizer
+$ mkdir $GOPATH/src/github.com/romainmenke/stylesheet-randomizer/data
+$ go install ./cmd/sr-scraper && sr-scraper
+```
+
+Results will appear in the `data` directory
